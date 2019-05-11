@@ -17,7 +17,7 @@ import { environment } from '../environments/environment';
   declarations: [
     AppComponent,
     NameEditorComponent,
-    ProfileEditorComponent,
+    ProfileEditorComponent
     ],
   imports: [
     BrowserModule,
