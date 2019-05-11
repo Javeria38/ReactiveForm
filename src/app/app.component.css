@@ -1,0 +1,24 @@
+/* ProfileEditorComponent's private CSS styles */
+:host {
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+  }
+  
+ 
+  .button {
+    font-family: Arial;
+    background-color:whitesmoke;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    color:  #607D8B;
+
+  }
+  
+  .button:hover {
+    background-color: #cfd8dc;
+  }
+  
+  

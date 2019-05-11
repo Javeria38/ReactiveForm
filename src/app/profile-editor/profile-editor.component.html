@@ -1,0 +1,106 @@
+
+
+
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <div class="container py-3">
+      <div class="row">
+          <div class="mx-auto col-sm-6">
+                      <!-- form user info -->
+                      <div class="card">
+                          <div class="card-header">
+                              <h4 class="mb-0">User Information</h4>
+                          </div>
+      
+        <div class="card card-body">
+        <input type="text" [formControl]="docID" name="docID" hidden>
+  <form  [formGroup]="profileForm">
+      <div *ngIf="success" class="alert alert-success" role="alert">
+          Saved Info
+        </div>
+    <div class="form-group row">
+    
+        <div class="col-lg-9">     
+      <input type="text" formControlName="firstName" name="firstName" placeholder="Enter First Name" required>
+        </div>
+      <div
+        *ngIf="profileForm.get('firstName').invalid && (profileForm.get('firstName').dirty || profileForm.get('firstName').touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="profileForm.get('firstName').errors.required">
+          required.
+        </div>
+        <div *ngIf="profileForm.get('firstName').errors.minlength">
+          Name must be at least 4 characters long.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+   
+        <div class="col-lg-9">     
+
+        <input type="text" formControlName="lastName" name="lastName" placeholder="Enter Last Name" required>
+        </div>
+      <div
+        *ngIf="profileForm.get('lastName').invalid && (profileForm.get('lastName').dirty || profileForm.get('lastName').touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="profileForm.get('lastName').errors.required">
+          required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+          <div class="col-lg-9">        
+        <input type="text" formControlName="email" name="email" placeholder="Enter Email" required>
+          </div>
+      <div
+        *ngIf="profileForm.get('email').invalid && (profileForm.get('email').dirty || profileForm.get('email').touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="profileForm.get('email').errors.required">
+          required.
+        </div>
+        <div *ngIf="profileForm.get('email').errors.email">
+        Must Enter valid Email Address
+        </div>
+      </div>
+    </div>
+  
+
+    <button *ngIf="bool" id="submit" type="submit" [disabled]="profileForm.invalid"
+      (click)="addPost(form)">Submit</button>
+    <button *ngIf="!bool" id="submit" type="submit" [disabled]="profileForm.invalid"
+      (click)="editPost(form)">Update</button>
+
+  </form>
+  </div>
+  </div>
+</div>  
+</div>
+</div>
+  <br>
+  <table class="table table-stripped">
+  
+      <th>First Name</th>
+      <th>Last Name</th>
+     
+      <th>email</th>
+      <th>action(delete)</th>
+      <th>action(edit)</th>
+   
+    
+      <tr *ngFor="let post of posts| async ; let i = index">
+      
+        <td>{{post.firstName}}</td>
+        <td>{{post.lastName}}</td>
+        <td>{{post.email}}</td>
+        <td><button class="btn btn-danger" href="#" (click)="deletePost(post.id)"> <span class="glyphicon glyphicon-trash"></span> </button></td>
+        <td> <button class="btn btn-success" href="#" (click)="userEdit(post, i, post.id)"><span class="glyphicon glyphicon-pencil"></span></button></td>
+
+      </tr>
+   
+  </table>
+

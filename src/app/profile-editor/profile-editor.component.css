@@ -1,0 +1,71 @@
+/* ProfileEditorComponent's private CSS styles */
+:host {
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+  }
+  table{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+  align-self: center;
+  }
+  
+  td,th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+   tr:nth-child(even){background-color: #f2f2f2;}
+  
+   tr:hover {background-color: #ddd;}
+  
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(4, 85, 109);
+    color: white;
+  }  
+  label {
+    display: block;
+    width: 6em;
+    margin: .5em 0;
+    color: #607D8B;
+    font-weight: bold;
+  }
+  
+  input {
+    height: 2em;
+    font-size: 1em;
+    padding-left: .4em;
+  }
+  
+  #submit {
+    font-family: Arial;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #submit:hover {
+    background-color: #cfd8dc;
+  }
+  
+  #submit:disabled {
+    background-color: #eee;
+    color: #000;
+    cursor: auto;
+  }
+ 
+  
+  input.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+  input.ng-valid.ng-touched {
+    border: 1px solid greenyellow;
+  }
+
+  
